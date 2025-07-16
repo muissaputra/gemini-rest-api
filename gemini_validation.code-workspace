@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../magnet_cabinet_3/magnet"
+		},
+		{
+			"path": "../magnet_cabinet_3_backupapril"
+		},
+		{
+			"path": "../magnet"
+		},
+		{
+			"path": "../cni-master"
+		},
+		{
+			"path": "../xampp5/htdocs/dev_wakuliner_aws"
+		},
+		{
+			"path": "../csn_csbook"
+		},
+		{
+			"path": "../xampp4/htdocs/cornerstone"
+		},
+		{
+			"path": "../xampp4/htdocs/cornerstone_new"
+		},
+		{
+			"path": "../xampp5/htdocs/cms_wakuliner/appprod"
+		}
+	]
+}
