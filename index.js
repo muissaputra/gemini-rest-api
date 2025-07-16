@@ -20,7 +20,7 @@ const uploads = multer({dest:'uploads/'});
 const GEMINI_API_KEY = "AIzaSyCNMuefBV3tojCn9I6auq-wCNO-u9mLY4U"; // Replace with your API Key
 //console.log(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "models/gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
 
 app.get("/", (req, res) => {
     res.send("Server is running. Use the /validate endpoints.");
