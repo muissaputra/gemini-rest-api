@@ -137,7 +137,7 @@ app.post("/generate-from-audio", uploads.single("audio"),async (req, res) => {
     }
 });
 
-
+/*
 app.post("/validate/institution", async (req, res) => {
     const { institution } = req.body;
     const response = await analyzeWithGemini(`Is '${institution}' a valid financial institution? Reply 'true' or 'false'.`);
@@ -175,6 +175,7 @@ app.post("/validate/date", async (req, res) => {
         valid: response?.toLowerCase().includes('true')
     });
 });
+*/
 // Start the server
 const PORT = process.env.PORT_API || 3000
 app.listen(PORT, () => {

@@ -1,2 +1,4 @@
 .env
+gemini_validation.code-workspace
+workspace.code-workspace
 node_modules
