@@ -1,26 +1,26 @@
-const express = require("express");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-const path = require("path");
-const fs = require("fs");
-const multer = require("multer");
-const app = express();
-const dotenv = require("dotenv");
-const { error } = require("console");
-//const cors = require("cors");
+import express from 'express';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import path from 'path';
+import fs from 'fs';
+import multer from 'multer';
+import dotenv from 'dotenv';
+import error  from 'console';
+import cors from "cors";
+
 dotenv.config();
-app.use(express.json());
-
-
-
+const PORT = process.env.PORT_API || 3000
 const uploads = multer({dest:'uploads/'});
 
-
-
 // Initialize Gemini AI
-const GEMINI_API_KEY = "AIzaSyCNMuefBV3tojCn9I6auq-wCNO-u9mLY4U"; // Replace with your API Key
-//console.log(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public'));
+
 
 app.get("/", (req, res) => {
     res.send("Server is running. Use the /validate endpoints.");
@@ -60,6 +60,14 @@ const imageToGenerativePart = (filePath,mimeType) => ({
 
     }
 })
+
+app.post("/api/chat", async (req, res) => {
+    const { prompt } = req.body;
+    const response = await analyzeWithGemini(prompt);
+    res.json({
+        reply: response
+    });
+});
 
 app.post("/generate-text", async (req, res) => {
     const { prompt } = req.body;
@@ -137,6 +145,10 @@ app.post("/generate-from-audio", uploads.single("audio"),async (req, res) => {
     }
 });
 
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 /*
 app.post("/validate/institution", async (req, res) => {
     const { institution } = req.body;
@@ -177,9 +189,5 @@ app.post("/validate/date", async (req, res) => {
 });
 */
 // Start the server
-const PORT = process.env.PORT_API || 3000
-app.listen(PORT, () => {
-    console.log(process.env.PORT_API);
-    console.log(process.env.GEMINI_API_KEYS);
-    console.log(`Server running on port ${PORT}`);
-});
+
+
