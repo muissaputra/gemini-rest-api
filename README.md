@@ -1,3 +1,7 @@
+**Summary**<br/>
+Implementation ChatBot with Gemini AI<br/>
+This project using generative AI with models Gemini 2.5 Flash AI
+
 **Installation**
 - Install module Node JS
 
@@ -7,7 +11,7 @@
    
   _npm install express dotenv cors @google/generative-ai_
   
-  This setup prepares a Node.js project using Express and integrates the Gemini 1.5 Flash API through the @google/generative-ai package, enabling support for text, audio, image, or document input handling.
+  This setup prepares a Node.js project using Express and integrates the Gemini 2.5 Flash API through the @google/generative-ai package, enabling support for text, audio, image, or document input handling.
   - express: Sets up the REST API.
   - dotenv: Loads the Gemini API key securely from a .env file.
   - @google/generative-ai: Connects to the Gemini API (including Flash 1.5).
