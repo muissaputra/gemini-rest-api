@@ -26,4 +26,5 @@ This project using generative AI with models Gemini 2.5 Flash AI
   
   
 **Running Program**
-- node index.js
+Command On Terminal : <br/>
+node index.js
